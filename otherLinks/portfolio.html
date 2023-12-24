@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="../style.css">
+    
+</head>
+<body>
+
+<div class="header">
+    <nav>
+        
+        <ul>
+            <li><a href="../index.html">About</a></li>
+            <li><a href="portfolio.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="toggle-btn" id="btn">
+            <span id="btnText">Dark</span>
+            <img src="../images/moon.png" id="btnIcon">
+        </div>
+    </nav>
+
+    <div class="project-content">
+         <h3>There is no project to show yet...</h3>
+        
+    </div>
+
+   
+
+</div>
+
+<script>
+
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
+document.body.classList.toggle('dark-theme', isDarkMode);
+
+let btn = document.getElementById("btn");
+let btnText = document.getElementById("btnText");
+let btnIcon = document.getElementById("btnIcon");
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-theme");
+    const isDarkModeNow = document.body.classList.contains("dark-theme");
+    localStorage.setItem('darkMode', isDarkModeNow);
+    
+    if (isDarkModeNow) {
+        btnIcon.src = "../images/sun.png";
+        btnText.innerHTML = "Light";
+    } else {
+        btnIcon.src = "../images/moon.png";
+        btnText.innerHTML = "Dark";
+    }
+}
+
+btn.onclick = toggleDarkMode;
+
+
+</script>
+</body>
+</html>

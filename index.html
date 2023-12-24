@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <nav>
+        
+        <ul>
+            <li><a href="index.html">About</a></li>
+            <li><a href="otherLinks/portfolio.html">Projects</a></li>
+            <li><a href="otherLinks/contact.html">Contact</a></li>
+        </ul>
+        <div class="toggle-btn" id="btn">
+            <span id="btnText">Dark</span>
+            <img src="images/moon.png" id="btnIcon">
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Hello!</h1>
+        <h1><span>I'm</span> Karl Loquias</h1>
+        <ul>
+            <li>Skills- Good at using Microsoft Office, Video Editing and Dancing</li>
+            <li>Interest- I gave some interest in Coding and some computer related activities.</li>
+            <li>Background<ul>
+                <li>Elementary- Tinago Elementary School</li>
+                <li>JHS- Tabalong National Highschool</li>
+                <li>SHS- Lourdes National Highschool</li>
+                <li>College- BISU</li>
+            </ul></li>
+        </ul>
+        
+    </div>
+
+    <div class="image-box">
+        <img src="images/karl.png">
+        
+    </div>
+
+</div>
+
+<script>
+
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
+document.body.classList.toggle('dark-theme', isDarkMode);
+
+let btn = document.getElementById("btn");
+let btnText = document.getElementById("btnText");
+let btnIcon = document.getElementById("btnIcon");
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-theme");
+    const isDarkModeNow = document.body.classList.contains("dark-theme");
+    localStorage.setItem('darkMode', isDarkModeNow);
+    
+    if (isDarkModeNow) {
+        btnIcon.src = "images/sun.png";
+        btnText.innerHTML = "Light";
+    } else {
+        btnIcon.src = "images/moon.png";
+        btnText.innerHTML = "Dark";
+    }
+}
+
+btn.onclick = toggleDarkMode;
+
+
+</script>
+</body>
+</html>
